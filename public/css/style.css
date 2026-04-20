@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #343a40; // Dark background color */
+    color: #ffffff; /* Light text color */
+    background: linear-gradient(to right, #343a40 0%, #78838f 30%, #78838f 70%, #343a40 100%);
+}
+/* Add some spacing around the form */
+.signup-form {
+    padding: 20px;
+    border: 1px solid #6c757d; /* Dark border color */
+    border-radius: 10px; /* Increased border-radius */
+    box-shadow: 0px 0px 10px #888;
+    background-color: #495057; /* Dark background color for the form */
+}
+/* Style input fields */
+.form-control {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Light text color */
+    border: 1px solid #6c757d; /* Dark border color */
+    border-radius: 20px; /* Increased border-radius */
+}
+/* Style buttons */
+.btn-primary {
+    background-color: #007bff; /* Primary color for the button */
+    border: 1px solid #007bff; /* Border color for the button */
+    border-radius: 12px; /* Increased border-radius */
+}
+form{
+    margin-top: 10%;
+}
+.alert{
+    color: #f9b3ba;
+    text-align: center;
+}

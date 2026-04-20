@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Super Admin Dashboard</title>
+      <!-- Include Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+      <!-- overlayScrollbars -->
+      <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="dist/css/adminlte.min.css">
+      <link rel="stylesheet" href="/css/dashboard.css">
+     
+  </head>
+
+  <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-dark">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+        </ul>
+    
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+              <i class="fas fa-search"></i>
+            </a>
+            <div class="navbar-search-block">
+              <form class="form-inline">
+                <div class="input-group input-group-sm">
+                  <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <div class="sidebar">
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <a href="#" class="d-block"><%= user.username %></a>
+            </div>
+          </div>
+      
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link dashboard active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <!-- <i class="right fas fa-angle-left"></i> -->
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-user-tie"></i>
+                  <p>
+                    Admin
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link admin-list">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List of Admin</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link create-admin">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create Admin</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link create-role">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create Role</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    User
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link user-list">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List of User</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Events
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link event-list">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>All Events</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-envelope"></i>
+                  <p>
+                    Mailbox
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Inbox</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link mail-compose">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Compose</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="/logout" class="nav-link">
+                  <p class="text">Logout</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+    
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+              </div><!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+    
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">            
+            <div class="row">
+              <div class="col-md-12">
+                <div id="adminDashboard">
+                  <!-- Widgets -->
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6 col-12">
+                      <div class="info-box bg-success">
+                        <span class="info-box-icon"><i class="fas fa-users"></i></span>
+  
+                        <div class="info-box-content">
+                          <span class="info-box-text">Registered Users</span>
+                          <span class="info-box-number">
+                            <%= usersCount %>
+                          </span>
+  
+                          <div class="progress">
+                            <div class="progress-bar" style="width: <%= usersPercentage %>%"></div>
+                          </div>
+                          <span class="progress-description">
+                            <%= usersPercentage %>%
+                          </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-12">
+                      <div class="info-box bg-info">
+                        <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+  
+                        <div class="info-box-content">
+                          <span class="info-box-text">Events</span>
+                          <span class="info-box-number">
+                            <%= eventsCount %>
+                          </span>
+  
+                          <div class="progress">
+                            <div class="progress-bar" style="width: <%= eventsPercentage %>%"></div>
+                          </div>
+                          <span class="progress-description">
+                            <%= eventsPercentage %>%
+                          </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-12">
+                      <div class="info-box bg-warning">
+                        <span class="info-box-icon"><i class="fa fa-calendar-alt"></i></span>
+  
+                        <div class="info-box-content">
+                          <span class="info-box-text">Booked Events</span>
+                          <span class="info-box-number">
+                            <%= bookedEventsCount %>
+                          </span>
+  
+                          <div class="progress">
+                            <div class="progress-bar" style="width: <%= bookedEventsPercentage %>%"></div>
+                          </div>
+                          <span class="progress-description">
+                            <%= bookedEventsPercentage %>%
+                          </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-12">
+                      <div class="info-box bg-danger">
+                        <span class="info-box-icon"><i class="fa fa-exchange-alt"></i></span>
+  
+                        <div class="info-box-content">
+                          <span class="info-box-text">Transactions</span>
+                          <span class="info-box-number">
+                            <%= transactionsCount %>
+                          </span>
+  
+                          <div class="progress">
+                            <div class="progress-bar" style="width: <%= transactionsPercentage %>%"></div>
+                          </div>
+                          <span class="progress-description">
+                            <%= transactionsPercentage %>%
+                          </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                  </div>
+  
+                  <!-- events charts -->
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card">
+  
+                        <div class="card-header">
+                          <h5 class="card-title">Monthly Created Events Report</h5>
+                          <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                            </button>
+                          </div>
+                        </div>
+  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-6 offset-sm-3">
+                              <p class="text-center">
+                                <strong>Events : Jul, 2023 - Dec, 2023</strong>
+                              </p>
+                              <div class="chart">
+                                <!-- Sales Chart Canvas -->
+                                <canvas id="eventsCreatedChart" style="height: 180px;"></canvas>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-header">
+                          <h5 class="card-title">Monthly Booked Events Report</h5>
+  
+                          <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p class="text-center">
+                                <strong>Booked Events : Jul, 2023 - Dec, 2023</strong>
+                              </p>
+  
+                              <div class="chart">
+                                <canvas id="eventsBookedChart" style="height: 180px;"></canvas>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- payment revenue -->
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="card-title">Monthly Payment Revenue</h5>
+  
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <p class="text-center">
+                            <strong>Sales: Jul, 2023 - Dec, 2023</strong>
+                          </p>
+  
+                          <div class="chart">
+                            <!-- <canvas id="salesChart" height="180" style="height: 180px;"></canvas> -->
+                            <canvas id="paymentChart" style="height: 180px;"></canvas>
+                          </div>
+                          <!-- /.chart-responsive -->
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+                    </div>
+                    <!-- ./card-body -->
+                  </div><!-- /.card -->
+                </div>
+
+                <div class="card" id="adminListContent" style="display: none;">
+                  <div class="card-header">
+                    <h5 class="card-title">Admin List</h5>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table m-0">
+                            <thead>
+                            <tr>
+                              <th>Sl No</th>
+                              <th>Name</th>
+                              <th>Mail Id</th>
+                              <!-- <th>Authority</th> -->
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <% admins.forEach((admin, index) => { %>
+                                <tr>
+                                  <td><%= index + 1 %></td>
+                                  <td><%= admin.username %></td>
+                                  <td><%= admin.email %></td>
+                                  <!-- <td>X, Y, Z</td> // You may need to adjust this based on your data -->
+                                </tr>
+                              <% }); %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </div><!-- /.card -->
+
+                <div class="card" id="createAdminContent" style="display: none;">
+                  <div class="card-header">
+                    <h5 class="card-title">Admin Registration</h5>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6 offset-md-3">
+                        <div class="admin-signup-form">
+                          <h1 class="text-center">Admin Sign Up</h1>
+
+                          <p id="errorContainer" class="alert"></p>
+                          
+                          <form method="post" id="adminRegistrationForm" action="admin/register">
+                              <div class="form-group">
+                                  <input type="text" class="form-control" id="username" name="username" placeholder="Username"  required>
+                              </div>
+                              <div class="form-group">
+                                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                              </div>
+                              <div class="form-group">
+                                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="new-password" required>
+                              </div>
+                              <div class="form-group">
+                                  <select class="form-control" id="role" name="role" required>
+                                      <option value="admin1">Admin1</option>
+                                      <option value="admin2">Admin2</option>
+                                  </select>
+                              </div>
+                              <div class="text-center">
+                                  <button type="submit" id="submitBtn" class="btn btn-primary">Sign Up</button>
+                              </div>
+                          </form>
+                      </div>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </div><!-- /.card -->
+
+                <div class="card" id="userListContent" style="display: none;">
+                  <div class="card-header">
+                    <h5 class="card-title">User List</h5>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table m-0">
+                            <thead>
+                              <tr>
+                                <th>Sl No</th>
+                                <th>Name</th>
+                                <th>Mail Id</th>
+                                <th>Events</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% users.forEach((user, index) => { %>
+                                <tr>
+                                  <td><%= index + 1 %></td>
+                                  <td><%= user.username %></td>
+                                  <td><%= user.email %></td>
+                                  <td>
+                                    <% const userEvents = allEvents.filter(event => event.userid === user.id); %>
+                                    <% if (userEvents.length > 0) { %>
+                                      <% userEvents.forEach((event, index) => { %>
+                                        <%= index + 1 === userEvents.length ? event.eventname : event.eventname + ', ' %>
+                                      <% }); %>
+                                    <% } else { %>
+                                      No Events
+                                    <% } %>
+                                  </td>
+                                </tr>
+                              <% }); %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </div><!-- /.card -->
+
+                <div class="card" id="eventListContent" style="display: none;">
+                  <div class="card-header">
+                    <h5 class="card-title">Event List</h5>
+    
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table event-table m-0">
+                            <thead>
+                              <tr>
+                                <!-- <th>Sl No</th> -->
+                                <th>Event Date</th>
+                                <th>Image</th>
+                                <th>Session</th>
+                                <th>Venue</th>                                        
+                                <th> </th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% allEvents.forEach((event, index) => { %>
+                                <tr>
+                                    <!-- <td><a href="#"><%= index + 1 %></a></td> -->
+                                    <td class="eventdate">
+                                        <span class="date">
+                                        <%= new Date(event.eventdate).toLocaleString('en-IN', {day: 'numeric'}) %>
+                                        </span>
+                                        <p><%= new Date(event.eventdate).toLocaleString('en-IN', { month: 'long'}) %></p>
+                                    </td>
+                                    <td><img src="<%= event.eventimg %>" alt="Event Image"></td>
+                                    <td>
+                                        <div class="event-wrap">
+                                            <h3><%= event.eventname %></h3>
+                                            <div class="meta">
+                                                <div class="organizers">
+                                                  <i class="nav-icon fa fa-user"></i> <%= event.username %>
+                                                </div>
+                                                <div class="time">
+                                                    <span><%= new Date(event.eventdate).toLocaleString('en-IN', { hour: 'numeric', minute: 'numeric', second: 'numeric' }) %></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><%= event.eventplace %></td>
+                                    <td><a href="#" class="btn btn-primary event-details" data-toggle="modal" data-target="#eventDetailsModal" data-index="<%= index %>">Read More</a></td>
+                                    <td>
+                                      <a href="#" class="btn btn-warning edit-event" data-index="<%= index %>" data-toggle="modal" data-target="#editEventModal"><i class="fas fa-edit"></i></a>                    
+                                      <a href="#" class="btn btn-danger delete-event" data-index="<%= index %>"><i class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                    <!-- <td><a href="#" class="btn btn-primary event-details" data-index="<%= index %>">Read More</a></td> -->
+                                    <!-- <td><%= event.eventname %></td> -->
+                                    <!-- <td><%= event.eventdescription %></td> -->
+                                    <!-- <td><%= new Date(event.eventdate).toLocaleString('en-IN', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' }) %></td> -->
+                                    <!-- <td><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(event.eventprice) %></td> -->
+                                    <!-- <td><img src="<%= event.eventimg %>" alt="Event Image" style="width: 50px; height: auto;"></td> -->
+                                </tr>
+                              <% }); %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </div><!-- /.card -->
+
+                <div class="card" id="mailComposer" style="display: none;">
+                  <div class="card-header">
+                    <h5 class="card-title">Compose Mail </h5>
+                  </div>
+  
+                  <div class="card-body">
+                    <form id="composeMailForm">
+                      <div class="form-group">
+                        <label for="recipient">To:</label>
+                        <!-- <input type="email" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient email">  -->
+                        <input type="text" class="form-control" id="recipient" placeholder="Enter recipient email(s)">
+  
+                      </div>
+                      <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" class="form-control" id="subject" name="subject"
+                          placeholder="Enter email subject">
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="5"
+                          placeholder="Type your message here"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary" id="sendEmailBtn">Send Email</button>
+                    </form>
+                  </div>
+                </div><!-- /.card -->
+
+                <div class="card" id="createRoleContent" style="display: none;">
+                  <div class="card-header">
+                    <h5 class="card-title">Create Role</h5>
+                  </div>
+                  <!-- Add your form for creating roles here -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-4 offset-md-4" >
+                        <form id="createRoleForm">
+                          <div class="form-group">
+                            <!-- <label for="roleName">Role Name:</label> -->
+                            <input type="text" id="roleName" name="roleName" class="form-control" placeholder="Role Name" style="border-radius: 20px;" required>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label>Access Levels:</label>
+                            <div class="form-check">
+                              <input type="checkbox" id="readAccess" name="readAccess" class="form-check-input">
+                              <label class="form-check-label" for="readAccess">Read</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" id="writeAccess" name="writeAccess" class="form-check-input">
+                              <label class="form-check-label" for="writeAccess">Write</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" id="viewAccess" name="viewAccess" class="form-check-input">
+                              <label class="form-check-label" for="viewAccess">View</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" id="deleteAccess" name="deleteAccess" class="form-check-input">
+                              <label class="form-check-label" for="deleteAccess">Delete</label>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <button  class="btn btn-primary" type="button" onclick="createRole()">Create Role</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div> <!-- /.col -->
+            </div><!-- /.row -->
+          </div><!--/. container-fluid -->
+        </section>
+      </div>
+      <!-- /.content-wrapper -->
+        <!-- event details Modal -->
+        <div class="modal fade" id="eventDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="eventDetailsModalLabel">Event Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                  <div class="modal-body">
+                      <div id="eventDetailsContent">
+                      <!-- event details will display here -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+          <!-- Edit Event Modal -->
+        <div class="modal fade" id="editEventModal" tabindex="-1" role="dialog" aria-labelledby="editEventModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="editEventModalLabel">Edit Event</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <div id="editEventContent">
+                          <!-- Edit event form will be displayed here -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+   
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get references to content areas
+        const adminDashboard = document.getElementById('adminDashboard');
+        const adminListContent = document.getElementById('adminListContent');
+        const createAdminContent = document.getElementById('createAdminContent');
+        const userListContent = document.getElementById('userListContent');
+        const eventListContent = document.getElementById('eventListContent');
+        const mailComposer = document.getElementById('mailComposer');
+        const createRoleContent = document.getElementById('createRoleContent');
+
+
+        // Function to show/hide content based on selected item
+        function showContent(contentToShow) {
+          adminDashboard.style.display = 'none';
+          adminListContent.style.display = 'none';
+          createAdminContent.style.display = 'none';
+          userListContent.style.display = 'none';
+          eventListContent.style.display = 'none';
+          mailComposer.style.display = 'none';
+          createRoleContent.style.display = 'none';
+
+
+          if (contentToShow) {
+            contentToShow.style.display = 'block';
+          }
+        }
+
+        // Attach click event listeners to sidebar items
+        document.querySelector('.dashboard').addEventListener('click', function () {
+          showContent(adminDashboard);
+        });
+
+        document.querySelector('.admin-list').addEventListener('click', function () {
+          showContent(adminListContent);
+        });
+
+        document.querySelector('.create-admin').addEventListener('click', function () {
+          showContent(createAdminContent);
+        });
+
+        document.querySelector('.user-list').addEventListener('click', function () {
+          showContent(userListContent);
+        });
+
+        document.querySelector('.event-list').addEventListener('click', function () {
+          showContent(eventListContent);
+        });
+
+        document.querySelector('.mail-compose').addEventListener('click', function () {
+          showContent(mailComposer);
+        });
+
+        document.querySelector('.create-role').addEventListener('click', function () {
+          showContent(createRoleContent);
+        });
+
+
+        // Initialize content based on the default or initial selection
+        // For example, show admin list by default
+        showContent(adminDashboard);
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+        $('#submitBtn').on('click', function() {
+          // Prevent the default form submission behavior
+          event.preventDefault();
+
+          // Check for required fields
+          if (!$('#username').val() || !$('#email').val() || !$('#password').val() || !$('#role').val()) {
+            $('#errorContainer').html('All fields are required. Please fill them out.').addClass('d-block');
+             // Hide error message after 3 seconds
+            setTimeout(function () {
+              $('#errorContainer').removeClass('d-block').html('');
+            }, 3000);
+
+            return;
+          }
+
+          // Gather form data
+          var formData = $('#adminRegistrationForm').serialize();
+    
+          // Send form data using AJAX
+          $.ajax({
+            type: 'POST',
+            url: '/admin/register',
+            data: formData,
+            success: function(response) {
+              // Check the response from the server
+              if (response.success) {
+                // Redirect or handle success
+                window.location.href = '/dashboard';
+              } else {
+                // Display errors
+                $('#errorContainer').html(response.error).addClass('d-block');
+                // Hide error message after 3 seconds
+                setTimeout(function () {
+                  $('#errorContainer').removeClass('d-block').html('');
+                }, 3000);
+              }
+            },
+            error: function(error) {
+              console.error('Error during registration:', error);
+              $('#errorContainer').html('An error occurred during registration. Please try again later.').addClass('d-block');
+              // Hide error message after 3 seconds
+              setTimeout(function () {
+                $('#errorContainer').removeClass('d-block').html('');
+              }, 3000);
+            }
+          });
+        });
+      });
+
+    </script>
+    
+    <!-- modal content dynamically -->
+    <script type="text/javascript">
+      var allEvents = <%- JSON.stringify(allEvents) %>;
+      $(document).ready(function () {
+      $('.event-details').on('click', function () {
+          var index = $(this).data('index');
+          // console.log(index);
+          // console.log(allEvents[index]);
+
+          var event = allEvents[index];
+
+          // Set modal content dynamically
+          $('#eventDetailsModalLabel').text('Event Details');
+          $('#eventDetailsContent').html(`
+          <h3>${event.eventname}</h3>
+          <p>${event.eventdescription}</p>
+          <p>Event Date: ${new Date(event.eventdate).toLocaleString('en-IN')}</p>
+          <p><i class="fas fa-map-marker-alt"> </i> ${event.eventplace}</p>
+          <p>Price: ₹${new Intl.NumberFormat('en-IN').format(event.eventprice)}</p>
+          <p class="event-creator"> <i class="fas fa-user-tie"></i>  ${ event.username} </p>
+          <img src="${event.eventimg}" alt="Event Image" style="max-width: 100%; width: -webkit-fill-available;">
+          `);
+
+          // Show the modal
+          $('#eventDetailsModal').modal('show');
+      });
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          // Array of places for the dropdown
+          var places = [
+              "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat",
+              "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra",
+              "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu",
+              "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+          ];
+
+          $('.edit-event').on('click', function () {
+              var index = $(this).data('index');
+              var event = allEvents[index];
+              // console.log(event.eventid); 
+              // console.log(index);
+              // Set edit event form content dynamically
+              $('#editEventModalLabel').text('Edit Event');
+              $('#editEventContent').html(`
+                  <form method="post" id="editEventForm" enctype="multipart/form-data">
+                      <!-- Use the existing event object to populate the form fields -->
+                      <input type="hidden" id="editEventId" name="eventid" value="${event.eventid}">
+
+                      <div class="form-group">
+                          <input type="text" class="form-control" id="editEventName" name="eventname" placeholder="Eventname" value="${event.eventname}" required>
+                      </div>
+                      <div class="form-group">
+                          <textarea class="form-control" id="editEventDescription" name="eventdescription" placeholder="Event Description" required>${event.eventdescription}</textarea>
+                      </div>
+                      <div class="form-group">
+                          <select class="form-control" id="editEventPlace" name="eventplace" required>
+                              <option value="" disabled>Select State</option>
+                              ${places.map(place => `<option value="${place}" ${event.eventplace === place ? 'selected' : ''}>${place}</option>`).join('')}
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <input type="datetime-local" class="form-control" id="editEventDate" name="eventdate" required>
+                      </div>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text">₹</span>
+                              </div>
+                              <input type="text" class="form-control" id="editEventPrice" name="eventprice" placeholder="Event Price" value="${event.eventprice}" required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" id="editEventImage" name="eventimg" value="${event.eventimg}" readonly>
+                          <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="editEventImageFile" name="eventimg" accept="image/*">
+                              <label class="custom-file-label" for="editEventImageFile">Choose new image</label>
+                          </div>
+                          <img src="${event.eventimg}" alt="Current Event Image" style="max-width: 20%;">
+                      </div>
+
+                      <div class="text-center">
+                          <button type="button" id="saveEditBtn" class="btn btn-primary">Save Changes</button>
+                      </div>
+                  </form>
+              `);
+              
+              var eventDate = new Date(event.eventdate);
+              var localDate = new Date(eventDate.getTime() - eventDate.getTimezoneOffset() * 60000);
+              var formattedDate = localDate.toISOString().slice(0, 16); // Format: YYYY-MM-DDTHH:mm
+              // console.log(localDate); // Local date and time
+              // console.log(formattedDate); // Formatted date and time
+              document.getElementById('editEventDate').value = formattedDate;
+              // Show the edit event modal
+              $('#editEventModal').modal('show');
+          });
+          
+      });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#editEventContent').on('click', '#saveEditBtn', function () {
+          
+                // event.preventDefault();
+                console.log('hello');
+                // Extract the edited data from the form and send it to the server
+                var formData = new FormData($('#editEventForm')[0]);
+                console.log('Form Data:',formData);
+                for (let pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/dashboard/edit-event',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.success) {
+                            // Reload the page or update the event in the table without refreshing
+                            window.location.reload(); // or update the event in the table using JavaScript
+                        } else {
+                            // Display errors
+                            // Handle errors when updating the event
+                        }
+                    },
+                    error: function (error) {
+                        console.error('Error during event editing:', error);
+                        // Handle errors when updating the event
+                    }
+                });
+            });
+        });
+    </script>
+     <!-- script for delete event -->
+     <script type="text/javascript">
+      $(document).ready(function () {
+          $('.delete-event').on('click', function () {
+              var index = $(this).data('index');
+              var event = allEvents[index];
+
+              console.log ('eventId : ',event.eventid);
+  
+              // Use AJAX to send a request to delete the event
+              $.ajax({
+                  type: 'POST',
+                  url: '/dashboard/delete-event',
+                  data: { eventId: event.eventid }, // Send the event ID to the server
+                  success: function (response) {
+                      if (response.success) {
+                          // Reload the page or remove the event from the table without refreshing
+                          window.location.reload(); // or remove the event from the table using JavaScript
+                      } else {
+                          // Display errors
+                          // Handle errors when deleting the event
+                      }
+                  },
+                  error: function (error) {
+                      console.error('Error during event deletion:', error);
+                      // Handle errors when deleting the event
+                  }
+              });
+          });
+      });
+  </script>
+   <!-- chart -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script>
+     document.addEventListener('DOMContentLoaded', function () {
+       const ctxEventsCreated = document.getElementById('eventsCreatedChart').getContext('2d');
+       const ctxEventsBooked = document.getElementById('eventsBookedChart').getContext('2d');
+       const ctxPayment = document.getElementById('paymentChart').getContext('2d');
+       var monthlyChartData = <%- JSON.stringify(monthlyChartData) %>;
+ 
+       //  console.log(monthlyChartData);
+ 
+       const eventsCreatedChart = new Chart(ctxEventsCreated, {
+         type: 'pie',
+         data: {
+           labels: monthlyChartData.map(entry => entry.month),
+           datasets: [{
+             label: 'Events Created',
+             // backgroundColor: 'rgba(75, 192, 192, 0.2)',
+             // borderColor: 'yellow',
+             borderWidth: 2,
+             data: monthlyChartData.map(entry => entry.eventsCreated),
+           }],
+         },
+       });
+ 
+       const eventsBookedChart = new Chart(ctxEventsBooked, {
+         type: 'line',
+         data: {
+           labels: monthlyChartData.map(entry => entry.month),
+           datasets: [{
+             label: 'Events Booked',
+             backgroundColor: 'rgba(75, 192, 192, 0.2)',
+             borderColor: 'yellow',
+             borderWidth: 1,
+             data: monthlyChartData.map(entry => entry.eventsBooked),
+           }],
+         },
+       });
+ 
+       const paymentChart = new Chart(ctxPayment, {
+         type: 'bar',
+         data: {
+           labels: monthlyChartData.map(entry => entry.month),
+           datasets: [{
+             label: 'Transaction',
+             backgroundColor: 'rgb(160 192 239)',
+             borderColor: 'rgb(16 57 118);',
+             borderWidth: 1,
+             data: monthlyChartData.map(entry => entry.transactions),
+           }],
+         },
+       });
+     });
+   </script>
+   <!-- compose mail -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const composeMailForm = document.getElementById('composeMailForm');
+      const sendEmailBtn = document.getElementById('sendEmailBtn');
+
+      // Add an event listener to the form for handling submission
+      composeMailForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Get form data
+        
+        const recipient = document.getElementById('recipient').value;
+        // Split the string into an array of email addresses
+        const recipientEmailsArray = recipient.split(',');
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        console.log(recipientEmailsArray);
+        
+
+        // For example, you can use fetch API to send the email
+        fetch('/dashboard/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // body: JSON.stringify({ recipient, subject, message }),
+          body: JSON.stringify({ recipientEmails: [recipientEmailsArray], subject, message }),
+
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              // Redirect to dashboard if the email was sent successfully
+              window.location.href = data.redirect;
+            } else {
+              // Handle error case
+              console.error('Error:', data.error);
+            }
+          })
+          .catch(error => {
+            // Handle errors, e.g., show an error message
+            console.error(error);
+          });
+      });
+    });
+  </script>
+  <script>
+    function createRole() {
+  const roleName = document.getElementById('roleName').value;
+  const readAccess = document.getElementById('readAccess').checked;
+  const writeAccess = document.getElementById('writeAccess').checked;
+  const viewAccess = document.getElementById('viewAccess').checked;
+  const deleteAccess = document.getElementById('deleteAccess').checked;
+
+  const permissions = {
+    read: readAccess,
+    write: writeAccess,
+    view: viewAccess,
+    delete: deleteAccess,
+  };
+
+  // Send the data to the server using an AJAX request
+  fetch('/create-role', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      roleName,
+      permissions,
+    }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Role created successfully:', data);
+      // Optionally, you can reset the form or update the UI as needed
+    })
+    .catch(error => {
+      console.error('Error creating role:', error);
+      // Handle errors as needed
+    });
+}
+
+  </script>
+    
+  </body>
+
+</html>
